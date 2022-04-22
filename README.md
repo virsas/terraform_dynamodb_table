@@ -21,9 +21,8 @@ variable "example" {
     sortkey     = "Score"
     encryption  = true
     recovery    = false
-    ttl         = false
-    # write a region where you want your dynamodb to be replicated or leave empty to disable
-    replica     = false
+    # write a region where you want your dynamodb to be replicated to
+    replica     = "eu-west-2"
     # The number of read and write units for this table
     # 0 disabled limitation
     readcap     = 0

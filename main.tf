@@ -24,11 +24,6 @@ resource "aws_dynamodb_table" "table" {
     enabled        = var.instance.recovery
   }
 
-  ttl {
-    attribute_name = "DynamoDBTableTTL"
-    enabled        = var.instance.ttl
-  }
-
   replica {
     region_name = var.instance.replica
   }
