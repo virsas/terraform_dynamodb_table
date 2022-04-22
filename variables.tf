@@ -1,4 +1,4 @@
-variable "instance" { 
+variable "table" { 
   default = { 
     name = "example"
     billing = "PAY_PER_REQUEST"

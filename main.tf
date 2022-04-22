@@ -1,11 +1,11 @@
 resource "aws_dynamodb_table" "table" {
-  name           = var.instance.name
-  billing_mode   = var.instance.billing
-  hash_key       = var.instance.hashkey
-  range_key      = var.instance.sortkey
+  name           = var.table.name
+  billing_mode   = var.table.billing
+  hash_key       = var.table.hashkey
+  range_key      = var.table.sortkey
 
   dynamic "attribute" {
-    for_each = [for s in var.instance.attributes: {
+    for_each = [for s in var.table.attributes: {
       name = s.name
       type = s.type
     }]
@@ -17,15 +17,15 @@ resource "aws_dynamodb_table" "table" {
   }
 
   server_side_encryption {
-    enabled        = var.instance.encryption
+    enabled        = var.table.encryption
   }
 
   point_in_time_recovery {
-    enabled        = var.instance.recovery
+    enabled        = var.table.recovery
   }
 
   replica {
-    region_name = var.instance.replica
+    region_name = var.table.replica
   }
 
   stream_enabled = true
