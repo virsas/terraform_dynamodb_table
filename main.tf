@@ -27,4 +27,6 @@ resource "aws_dynamodb_table" "table" {
   replica {
     region_name = var.instance.replica
   }
+
+  stream_enabled = true
 }
