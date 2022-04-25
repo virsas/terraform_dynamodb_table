@@ -1,3 +1,7 @@
+provider "aws" {
+  region = var.region
+}
+
 resource "aws_dynamodb_table" "table" {
   name           = var.table.name
   billing_mode   = var.table.billing
